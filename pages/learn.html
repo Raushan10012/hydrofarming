@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn | HydroLearn</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/navbar.css">
+    <link rel="stylesheet" href="../assets/css/learn.css">
+    
+    <style>
+        .search-container {
+            max-width: 600px;
+            margin: -30px auto 40px;
+            position: relative;
+            z-index: 10;
+            padding: 0 20px;
+        }
+        .search-box {
+            width: 100%;
+            padding: 16px 24px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            font-size: 16px;
+            outline: none;
+            transition: 0.3s;
+        }
+        .search-box:focus {
+            border-color: var(--primary);
+            box-shadow: 0 4px 20px rgba(46, 125, 50, 0.15);
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container nav-container">
+        <div class="logo">👨‍🌾 HydroLearn</div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="learn.html" class="active">Learn</a></li>
+            <li><a href="crops.html">Crop Guide</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="marketplace.html">Marketplace</a></li>
+            <li><a href="hydroai.html">HydroAI</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button class="lang-btn">🌐 EN</button>
+            <button class="access-btn">♿ Accessibility</button>
+            <div id="userArea">
+                <a href="login.html" class="login-btn">Login</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<section class="learn-hero">
+    <h1>📚 Hydroponics Learning Center</h1>
+    <p>Learn everything about hydroponic farming from beginner to advanced level.</p>
+</section>
+
+<div class="search-container">
+    <input type="text" placeholder="Search topics..." class="search-box" id="learnSearch">
+</div>
+
+<section class="topics container">
+    <div class="topic-card">
+        <h2>What is Hydroponics?</h2>
+        <p>Hydroponics is a method of growing plants without soil, instead using a continuous flow or pool of nutrient-rich water directly to plant roots.</p>
+    </div>
+
+    <div class="topic-card">
+        <h2>NFT System</h2>
+        <p>NFT (Nutrient Film Technique) continuously flows a thin stream of nutrient-rich water through channels, feeding roots directly and recirculating water back to a reservoir.</p>
+    </div>
+
+    <div class="topic-card">
+        <h2>DWC System</h2>
+        <p>Deep Water Culture (DWC) keeps plant roots completely submerged in an oxygenated nutrient water bath, kept aerated via air pumps and bubblers.</p>
+    </div>
+
+    <div class="topic-card">
+        <h2>Aeroponics</h2>
+        <p>In aeroponic setups, plant roots are suspended in air and misted automatically at regular intervals with specialized nutrient solutions.</p>
+    </div>
+
+    <div class="topic-card">
+        <h2>Nutrient Management</h2>
+        <p>Hydroponic plants require specific concentrations of Nitrogen (N), Phosphorus (P), Potassium (K), and trace minerals dissolved in water.</p>
+    </div>
+
+    <div class="topic-card">
+        <h2>pH Management</h2>
+        <p>Most hydroponic crops absorb nutrients best in slightly acidic ranges between pH 5.5 and 6.5. Adjust with pH Up or pH Down solutions.</p>
+    </div>
+
+    <div class="topic-card">
+        <h2>Best Crops For Beginners</h2>
+        <p>Lettuce, basil, spinach, mint, and kale are fast growing, forgiving, and excellent crops for beginners starting their first system.</p>
+    </div>
+
+    <div class="topic-card">
+        <h2>Common Problems</h2>
+        <p>Watch out for algae growth (caused by light entering reservoirs), root rot (due to poor aeration/water temperature), and nutrient deficiencies.</p>
+    </div>
+
+    <div class="topic-card">
+        <h2>Pest Control</h2>
+        <p>Maintain proper airflow and screen entries. Treat pests with eco-friendly neem oil sprays, insecticidal soaps, or introduce beneficial predator insects.</p>
+    </div>
+
+    <div class="topic-card">
+        <h2>Setup Cost</h2>
+        <p>A small home DWC or Kratky system can be assembled for under ₹1500, whereas commercial multi-tier NFT systems can cost ₹5000 and upwards.</p>
+    </div>
+</section>
+
+<section class="container" style="margin-top: 40px; margin-bottom: 40px;">
+    <h2 style="color: var(--primary); margin-bottom: 20px; font-size: 24px;">🎥 Video Tutorial</h2>
+    <iframe width="100%" height="450" src="https://www.youtube.com/embed/hF-j957vG94" title="Hydroponics Tutorial" allowfullscreen style="border-radius: 16px; border: 1px solid var(--border); box-shadow: var(--shadow);"></iframe>
+</section>
+
+<section class="references container">
+    <h2>References & Resources</h2>
+    <ul>
+        <li><a href="https://en.wikipedia.org/wiki/Hydroponics" target="_blank">Wikipedia - Hydroponics Overview</a></li>
+        <li><a href="https://www.fao.org" target="_blank">FAO Agriculture Resources & Farming Reports</a></li>
+    </ul>
+</section>
+
+<script type="module" src="../assets/js/firebase.js"></script>
+<script type="module" src="../assets/js/user.js"></script>
+<script type="module" src="../assets/js/language.js"></script>
+<script type="module" src="../assets/js/accessibility.js"></script>
+<script type="module" src="../assets/js/navbar.js"></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const searchInput = document.getElementById("learnSearch");
+        const cards = document.querySelectorAll(".topic-card");
+
+        searchInput.addEventListener("input", () => {
+            const query = searchInput.value.toLowerCase().trim();
+            cards.forEach(card => {
+                const title = card.querySelector("h2").textContent.toLowerCase();
+                const text = card.querySelector("p").textContent.toLowerCase();
+                if (title.includes(query) || text.includes(query)) {
+                    card.style.display = "block";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community | HydroLearn</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/navbar.css">
+    <link rel="stylesheet" href="../assets/css/community-page.css">
+    
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, #1b5e20, #2e7d32);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        .page-header p {
+            font-size: 1.1rem;
+            color: #e8f5e9;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container nav-container">
+        <div class="logo">👨‍🌾 HydroLearn</div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="learn.html">Learn</a></li>
+            <li><a href="crops.html">Crop Guide</a></li>
+            <li><a href="community.html" class="active">Community</a></li>
+            <li><a href="marketplace.html">Marketplace</a></li>
+            <li><a href="hydroai.html">HydroAI</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button class="lang-btn">🌐 EN</button>
+            <button class="access-btn">♿ Accessibility</button>
+            <div id="userArea">
+                <a href="login.html" class="login-btn">Login</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<header class="page-header">
+    <h1>Community Hub</h1>
+    <p>Share farming experiences, ask questions and learn from others.</p>
+    
+    <section class="community-stats container" style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+        <div class="stat-card" style="background: rgba(255,255,255,0.1); padding: 15px 25px; border-radius: 12px; min-width: 150px; text-align: center;">
+            <h3 style="font-size: 24px; color: white;">10K+</h3>
+            <p style="margin: 0; color: #a5d6a7; font-size: 14px;">Farmers</p>
+        </div>
+        <div class="stat-card" style="background: rgba(255,255,255,0.1); padding: 15px 25px; border-radius: 12px; min-width: 150px; text-align: center;">
+            <h3 style="font-size: 24px; color: white;">2500+</h3>
+            <p style="margin: 0; color: #a5d6a7; font-size: 14px;">Posts</p>
+        </div>
+        <div class="stat-card" style="background: rgba(255,255,255,0.1); padding: 15px 25px; border-radius: 12px; min-width: 150px; text-align: center;">
+            <h3 style="font-size: 24px; color: white;">800+</h3>
+            <p style="margin: 0; color: #a5d6a7; font-size: 14px;">Questions</p>
+        </div>
+        <div class="stat-card" style="background: rgba(255,255,255,0.1); padding: 15px 25px; border-radius: 12px; min-width: 150px; text-align: center;">
+            <h3 style="font-size: 24px; color: white;">24/7</h3>
+            <p style="margin: 0; color: #a5d6a7; font-size: 14px;">Support</p>
+        </div>
+    </section>
+</header>
+
+<main class="community-container container">
+    <section class="create-post">
+        <h2>Create Post</h2>
+        <textarea id="postContent" placeholder="Share your farming journey..."></textarea>
+        <div class="post-actions" style="margin-top: 15px; display: flex; justify-content: space-between; align-items: center;">
+            <input type="file" style="font-family: 'Poppins', sans-serif;">
+            <button id="postBtn" style="background: var(--primary); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-weight: 600; cursor: pointer;">Publish Post</button>
+        </div>
+    </section>
+
+    <section class="trending-topics">
+        <h2>🔥 Trending Discussions</h2>
+        <div class="topic-list">
+            <div class="topic-card" style="background: white; border: 1px solid var(--border); padding: 15px; border-radius: 12px; margin-bottom: 12px; font-weight: 500;">
+                Best NFT setup under ₹5000?
+            </div>
+            <div class="topic-card" style="background: white; border: 1px solid var(--border); padding: 15px; border-radius: 12px; margin-bottom: 12px; font-weight: 500;">
+                Which crop grows fastest in hydroponics?
+            </div>
+            <div class="topic-card" style="background: white; border: 1px solid var(--border); padding: 15px; border-radius: 12px; margin-bottom: 12px; font-weight: 500;">
+                Organic nutrients vs chemical nutrients
+            </div>
+            <div class="topic-card" style="background: white; border: 1px solid var(--border); padding: 15px; border-radius: 12px; margin-bottom: 12px; font-weight: 500;">
+                Hydroponics in small apartments
+            </div>
+
+            <h3 style="margin-top: 30px; margin-bottom: 15px; font-size: 18px; color: var(--primary);">Quick Q&A</h3>
+            <div class="question-item" style="background: #e8f5e9; padding: 12px; border-radius: 10px; margin-bottom: 10px; font-size: 14px;">
+                <strong>How often should I change nutrient solution?</strong>
+                <p style="margin: 4px 0 0; color: var(--gray);">Every 2–3 weeks.</p>
+            </div>
+            <div class="question-item" style="background: #e8f5e9; padding: 12px; border-radius: 10px; margin-bottom: 10px; font-size: 14px;">
+                <strong>Best crop for beginners?</strong>
+                <p style="margin: 4px 0 0; color: var(--gray);">Lettuce and basil.</p>
+            </div>
+            <div class="question-item" style="background: #e8f5e9; padding: 12px; border-radius: 10px; font-size: 14px;">
+                <strong>NFT or DWC?</strong>
+                <p style="margin: 4px 0 0; color: var(--gray);">NFT for leafy greens, DWC for beginners.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="feed">
+        <h2>Recent Posts</h2>
+        <div id="postsList"></div>
+    </section>
+</main>
+
+<script type="module" src="../assets/js/firebase.js"></script>
+<script type="module" src="../assets/js/user.js"></script>
+<script type="module" src="../assets/js/language.js"></script>
+<script type="module" src="../assets/js/accessibility.js"></script>
+<script type="module" src="../assets/js/navbar.js"></script>
+<script type="module" src="../assets/js/community.js"></script>
+
+</body>
+</html>

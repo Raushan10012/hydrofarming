@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile | HydroLearn</title>
+    <link rel="stylesheet" href="../assets/css/profile.css">
+    <style>
+        /* Grid Layout & Card Enhancements */
+        .back-home {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #2e7d32;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 30px;
+        }
+        @media (max-width: 768px) {
+            .profile-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        .sidebar {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,.05);
+            text-align: center;
+            height: fit-content;
+        }
+        .content-area {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+        .dashboard-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,.05);
+        }
+        .dashboard-card h2 {
+            margin-top: 0;
+            color: #2e7d32;
+            border-bottom: 1px solid #f1f5f9;
+            padding-bottom: 12px;
+            font-size: 20px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .edit-name-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 13px;
+            color: #2e7d32;
+            margin-top: 5px;
+            font-weight: 600;
+            text-decoration: underline;
+        }
+        .edit-name-container {
+            margin: 15px 0;
+        }
+        .edit-name-input {
+            padding: 8px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 14px;
+            width: 100%;
+            margin-bottom: 8px;
+            box-sizing: border-box;
+        }
+        .save-name-btn {
+            background: #2e7d32;
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+        }
+        .stat-item {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 12px;
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            font-size: 15px;
+        }
+        .checklist-item input {
+            width: 18px;
+            height: 18px;
+            accent-color: #2e7d32;
+            cursor: pointer;
+        }
+        .order-item {
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 14.5px;
+        }
+        .order-item:last-child {
+            border-bottom: none;
+        }
+        .order-status {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .status-delivered {
+            background: #e2f9e9;
+            color: #1e7e34;
+        }
+        .status-transit {
+            background: #fef3d6;
+            color: #a06e00;
+        }
+        .post-item {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            padding: 16px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+        .post-item:last-child {
+            margin-bottom: 0;
+        }
+        .post-item p {
+            margin: 8px 0 0 0;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        .post-item-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 12px;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+<div class="profile-container">
+    <a href="../index.html" class="back-home">← Back Home</a>
+    
+    <div class="profile-grid">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="avatar-container" style="position: relative; width: 100px; height: 100px; margin: 0 auto 15px; cursor: pointer;" title="Click to upload profile photo">
+                <img id="profileAvatar" src="" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover; display: none;">
+                <div id="profileAvatarFallback" style="width: 100%; height: 100%; border-radius: 50%; background: #e2e8f0; display: flex; align-items: center; justify-content: center; font-size: 45px; color: #64748b;">👤</div>
+                <div style="position: absolute; bottom: 0; right: 0; background: #2e7d32; color: white; width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; border: 2px solid white; box-shadow: var(--shadow);">📷</div>
+                <input type="file" id="avatarUploadInput" style="display: none;" accept="image/*">
+            </div>
+            
+            <div id="nameDisplaySection" style="margin-top: 15px;">
+                <h2 id="profileName" style="margin: 0; font-size: 22px;"></h2>
+                <button id="editNameBtn" class="edit-name-btn">✏️ Edit Name</button>
+            </div>
+            
+            <div id="nameEditSection" style="display: none;" class="edit-name-container">
+                <input type="text" id="nameInput" class="edit-name-input" placeholder="Display Name">
+                <button id="saveNameBtn" class="save-name-btn">Save Name</button>
+            </div>
+            
+            <p id="profileEmail" style="color: #64748b; margin-top: 5px; margin-bottom: 25px; font-size: 14px; word-break: break-all;"></p>
+            
+            <div class="stat-item">
+                <span>Farmer Status:</span>
+                <strong id="farmerStatus">Hydro Apprentice</strong>
+            </div>
+            
+            <div class="stat-item">
+                <span>Total Posts:</span>
+                <strong id="postsCount">0</strong>
+            </div>
+            
+            <div class="stat-item">
+                <span>Member Since:</span>
+                <strong id="joinedDate">-</strong>
+            </div>
+            
+            <button class="logout-btn" onclick="logout()" style="margin-top: 30px; width: 100%;">
+                Logout
+            </button>
+        </div>
+        
+        <!-- Content Area -->
+        <div class="content-area">
+            <!-- Active Crops Checklist -->
+            <div class="dashboard-card">
+                <h2>Crops I am Growing</h2>
+                <div class="checklist-item">
+                    <input type="checkbox" id="cropLettuce" class="crop-checkbox">
+                    <label for="cropLettuce">🥬 Lettuce (pH: 5.5 - 6.5 | EC: 1.2 - 1.8)</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="cropTomato" class="crop-checkbox">
+                    <label for="cropTomato">🍅 Tomato (pH: 6.0 - 6.5 | EC: 2.0 - 5.0)</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="cropCucumber" class="crop-checkbox">
+                    <label for="cropCucumber">🥒 Cucumber (pH: 5.5 - 6.0 | EC: 1.6 - 2.5)</label>
+                </div>
+                <div class="checklist-item">
+                    <input type="checkbox" id="cropBasil" class="crop-checkbox">
+                    <label for="cropBasil">🌿 Basil (pH: 5.5 - 6.0 | EC: 1.0 - 1.6)</label>
+                </div>
+            </div>
+            
+            <!-- Order History -->
+            <div class="dashboard-card">
+                <h2>Equipment Order History</h2>
+                <div id="ordersListContainer">
+                    <div class="order-item">
+                        <div>
+                            <strong>Citygreens DWC Hydroponics Kit</strong><br>
+                            <small style="color: #64748b;">Order #HL-9382 • May 28, 2026</small>
+                        </div>
+                        <span class="order-status status-delivered">Delivered</span>
+                    </div>
+                    <div class="order-item">
+                        <div>
+                            <strong>Digital water pH Meter</strong><br>
+                            <small style="color: #64748b;">Order #HL-9428 • June 04, 2026</small>
+                        </div>
+                        <span class="order-status status-transit">In Transit</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- My Posts -->
+            <div class="dashboard-card">
+                <h2>My Community Posts</h2>
+                <div id="userPosts">Loading your posts...</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="module">
+import { auth, db } from "../assets/js/firebase.js";
+import {
+    onAuthStateChanged,
+    signOut,
+    updateProfile
+} from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
+import {
+    collection,
+    query,
+    where,
+    orderBy,
+    onSnapshot
+} from "https://www.gstatic.com/firebasejs/12.14.0/firebase-firestore.js";
+
+function escapeHTML(str) {
+    if (!str) return "";
+    return str.replace(/[&<>'"]/g, 
+        tag => ({
+            '&': '&amp;',
+            '<': '&lt;',
+            '>': '&gt;',
+            "'": '&#39;',
+            '"': '&quot;'
+        }[tag] || tag)
+    );
+}
+
+// Helper for logout
+window.logout = async function(){
+    try {
+        await signOut(auth);
+        window.location.href = "../index.html";
+    } catch (e) {
+        alert("Error logging out: " + e.message);
+    }
+}
+
+onAuthStateChanged(auth, (user) => {
+    if (user) {
+        // Render basic info
+        document.getElementById("profileName").innerText = user.displayName || "HydroLearn User";
+        document.getElementById("profileEmail").innerText = user.email;
+        
+        // Joined Date formatting
+        if (user.metadata && user.metadata.creationTime) {
+            const joined = new Date(user.metadata.creationTime);
+            document.getElementById("joinedDate").innerText = joined.toLocaleDateString('en-US', { year: 'numeric', month: 'long' });
+        } else {
+            document.getElementById("joinedDate").innerText = "June 2026";
+        }
+        
+        // Name edit bindings
+        const editNameBtn = document.getElementById("editNameBtn");
+        const saveNameBtn = document.getElementById("saveNameBtn");
+        const nameInput = document.getElementById("nameInput");
+        const nameDisplaySection = document.getElementById("nameDisplaySection");
+        const nameEditSection = document.getElementById("nameEditSection");
+        
+        editNameBtn.onclick = () => {
+            nameInput.value = user.displayName || "";
+            nameDisplaySection.style.display = "none";
+            nameEditSection.style.display = "block";
+        };
+        
+        saveNameBtn.onclick = async () => {
+            const newName = nameInput.value.trim();
+            if (newName === "") return;
+            
+            try {
+                await updateProfile(user, { displayName: newName });
+                document.getElementById("profileName").innerText = newName;
+                nameDisplaySection.style.display = "block";
+                nameEditSection.style.display = "none";
+                alert("Profile name updated successfully!");
+                location.reload();
+            } catch (err) {
+                alert("Error updating name: " + err.message);
+            }
+        };
+
+        // Profile Avatar Upload Logic
+        const avatarInput = document.getElementById("avatarUploadInput");
+        const profileAvatar = document.getElementById("profileAvatar");
+        const profileAvatarFallback = document.getElementById("profileAvatarFallback");
+        const avatarContainer = document.querySelector(".avatar-container");
+
+        avatarContainer.onclick = () => {
+            avatarInput.click();
+        };
+
+        avatarInput.onchange = (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    const dataUrl = reader.result;
+                    localStorage.setItem(`profilePic_${user.email}`, dataUrl);
+                    profileAvatar.src = dataUrl;
+                    profileAvatar.style.display = "block";
+                    profileAvatarFallback.style.display = "none";
+                    alert("Profile photo updated successfully!");
+                    location.reload();
+                };
+                reader.readAsDataURL(file);
+            }
+        };
+
+        // Load saved profile photo
+        const savedPic = localStorage.getItem(`profilePic_${user.email}`);
+        if (savedPic) {
+            profileAvatar.src = savedPic;
+            profileAvatar.style.display = "block";
+            profileAvatarFallback.style.display = "none";
+        } else {
+            profileAvatar.style.display = "none";
+            profileAvatarFallback.style.display = "flex";
+        }
+
+        // Load crop checklist state for this user from localStorage
+        const storageKey = `cropsChecked_${user.email}`;
+        const checkboxes = document.querySelectorAll(".crop-checkbox");
+        
+        // Load saved state
+        const savedCrops = JSON.parse(localStorage.getItem(storageKey)) || {};
+        checkboxes.forEach(cb => {
+            if (savedCrops[cb.id]) {
+                cb.checked = true;
+            }
+            // Add change event listener to save state on toggle
+            cb.onchange = () => {
+                const currentSaved = JSON.parse(localStorage.getItem(storageKey)) || {};
+                currentSaved[cb.id] = cb.checked;
+                localStorage.setItem(storageKey, JSON.stringify(currentSaved));
+            };
+        });
+
+        // Load custom orders from LocalStorage
+        const ordersKey = `orders_${user.email}`;
+        const savedOrders = JSON.parse(localStorage.getItem(ordersKey)) || [];
+        const ordersListContainer = document.getElementById("ordersListContainer");
+        if (ordersListContainer && savedOrders.length > 0) {
+            savedOrders.forEach(order => {
+                const orderEl = document.createElement("div");
+                orderEl.className = "order-item";
+                orderEl.innerHTML = `
+                    <div>
+                        <strong>${order.name} (₹${order.price})</strong><br>
+                        <small style="color: #64748b;">Order #${order.id} • ${order.date} • Deliver to: ${order.address}</small>
+                    </div>
+                    <span class="order-status status-transit">${order.status}</span>
+                `;
+                ordersListContainer.insertBefore(orderEl, ordersListContainer.firstChild);
+            });
+        }
+
+        // Query user's Firestore posts
+        const postsQuery = query(
+            collection(db, "posts"),
+            where("authorEmail", "==", user.email),
+            orderBy("createdAt", "desc")
+        );
+        
+        onSnapshot(postsQuery, (snapshot) => {
+            const userPosts = document.getElementById("userPosts");
+            const postsCountEl = document.getElementById("postsCount");
+            const farmerStatusEl = document.getElementById("farmerStatus");
+            
+            const count = snapshot.size;
+            postsCountEl.innerText = count;
+            
+            // Set Farmer status
+            if (count === 0) {
+                farmerStatusEl.innerText = "Hydro Apprentice";
+            } else if (count >= 1 && count <= 3) {
+                farmerStatusEl.innerText = "Active Grower";
+            } else {
+                farmerStatusEl.innerText = "Master Grower";
+            }
+
+            if (snapshot.empty) {
+                userPosts.innerHTML = "<p style='color: #64748b; font-style: italic;'>You haven't posted in the community yet.</p>";
+                return;
+            }
+
+            userPosts.innerHTML = "";
+            snapshot.forEach((docSnap) => {
+                const post = docSnap.data();
+                const dateStr = post.createdAt ? new Date(post.createdAt.seconds * 1000).toLocaleString() : "";
+                
+                const postItem = document.createElement("div");
+                postItem.className = "post-item";
+                postItem.innerHTML = `
+                    <div class="post-item-meta">
+                        <small>📅 ${dateStr}</small>
+                        <small>❤️ ${post.likes || 0} Likes</small>
+                    </div>
+                    <p>${escapeHTML(post.content)}</p>
+                `;
+                userPosts.appendChild(postItem);
+            });
+        }, (error) => {
+            console.error("Firestore posts query error:", error);
+            // Fallback: If query fails (e.g. index is building), query without orderBy first
+            const fallbackQuery = query(
+                collection(db, "posts"),
+                where("authorEmail", "==", user.email)
+            );
+            onSnapshot(fallbackQuery, (snapshot) => {
+                const userPosts = document.getElementById("userPosts");
+                const postsCountEl = document.getElementById("postsCount");
+                
+                const count = snapshot.size;
+                postsCountEl.innerText = count;
+                
+                if (snapshot.empty) {
+                    userPosts.innerHTML = "<p style='color: #64748b; font-style: italic;'>You haven't posted in the community yet.</p>";
+                    return;
+                }
+                userPosts.innerHTML = "";
+                snapshot.forEach((docSnap) => {
+                    const post = docSnap.data();
+                    const postItem = document.createElement("div");
+                    postItem.className = "post-item";
+                    postItem.innerHTML = `
+                        <p>${escapeHTML(post.content)}</p>
+                        <div class="post-item-meta">
+                            <small>❤️ ${post.likes || 0} Likes</small>
+                        </div>
+                    `;
+                    userPosts.appendChild(postItem);
+                });
+            });
+        });
+        
+    } else {
+        window.location.href = "login.html";
+    }
+});
+</script>
+</body>
+</html>

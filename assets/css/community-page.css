@@ -1,0 +1,223 @@
+body{
+
+    background:#f8fafc;
+
+    font-family:sans-serif;
+
+}
+
+.page-header{
+
+    text-align:center;
+
+    padding:60px 20px;
+
+}
+
+.back-btn{
+
+    display:inline-block;
+
+    margin-bottom:20px;
+
+    color:#2e7d32;
+
+    font-weight:600;
+
+}
+
+.page-header h1{
+
+    font-size:3rem;
+
+    margin-bottom:10px;
+
+}
+
+.community-container{
+
+    max-width:800px;
+
+    margin:auto;
+
+    padding:20px;
+
+}
+
+.create-post button{
+
+    background:#2e7d32;
+
+    color:white;
+
+    border:none;
+
+    padding:14px 28px;
+
+    border-radius:12px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+}
+
+.create-post textarea{
+
+    width:100%;
+
+    height:120px;
+
+    margin:15px 0;
+
+    padding:15px;
+
+    border-radius:12px;
+
+}
+
+.create-post button{
+
+    background:#2e7d32;
+
+    color:white;
+
+    border:none;
+
+    padding:12px 24px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+}
+
+.post-card{
+
+    width:100%;
+
+    max-width:800px;
+
+    margin:20px auto;
+
+    background:white;
+
+    border-radius:16px;
+
+    padding:20px;
+
+}
+
+.post-card img{
+
+    width:100%;
+
+    aspect-ratio:16/9;
+
+    object-fit:cover;
+
+    border-radius:12px;
+
+}
+.post-actions{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
+
+    margin-top:20px;
+
+}
+.trending-topics{
+
+    margin:50px 0;
+
+}
+
+.trending-topics h2{
+
+    margin-bottom:20px;
+
+}
+
+.topic-list{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+}
+
+.topic-card{
+
+    background:white;
+
+    padding:20px;
+
+    border-radius:15px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.05);
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    font-weight:600;
+
+}
+
+.topic-card:hover{
+
+    transform:translateY(-5px);
+
+}
+.community-stats{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:20px;
+
+    margin:40px 0 60px;
+
+}
+
+.stat-card{
+
+    background:#2e7d32;
+
+    color:white;
+
+    text-align:center;
+
+    padding:25px;
+
+    border-radius:15px;
+
+}
+
+.stat-card h3{
+
+    font-size:2rem;
+
+    margin-bottom:10px;
+
+}
+@media(max-width:768px){
+
+    .post-card{
+
+        padding:15px;
+
+        margin:15px 10px;
+
+    }
+
+}

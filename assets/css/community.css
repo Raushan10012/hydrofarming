@@ -1,0 +1,144 @@
+.community{
+
+    padding:100px 0;
+
+}
+
+.community-header{
+
+    text-align:center;
+
+    margin-bottom:50px;
+
+}
+
+.community-header h2{
+
+    font-size:2.8rem;
+
+    color:var(--dark);
+
+}
+
+.community-header p{
+
+    color:var(--gray);
+
+    margin-top:10px;
+
+}
+
+.community-grid{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr 1fr;
+
+    gap:25px;
+
+}
+
+.post-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    box-shadow:var(--shadow);
+
+}
+
+.post-user{
+
+    font-weight:700;
+
+    margin-bottom:15px;
+
+    color:var(--primary);
+
+}
+
+.post-content{
+
+    color:var(--dark);
+
+    margin-bottom:20px;
+
+}
+
+.post-stats{
+
+    display:flex;
+
+    gap:20px;
+
+    color:var(--gray);
+
+}
+
+.question-card{
+
+    background:#F8FAFC;
+
+    border-left:5px solid var(--primary);
+
+}
+.post-header{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:15px;
+
+}
+
+.avatar{
+
+    width:50px;
+
+    height:50px;
+
+    border-radius:50%;
+
+    background:#E8F5E9;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:1.4rem;
+
+}
+
+.post-image{
+
+    width:100%;
+
+    height:220px;
+
+    object-fit:cover;
+
+    border-radius:15px;
+
+    margin-bottom:15px;
+
+}
+
+.post-card{
+
+    transition:.3s;
+
+}
+
+.post-card:hover{
+
+    transform:translateY(-8px);
+
+}

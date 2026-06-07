@@ -1,0 +1,62 @@
+@media(max-width:768px){
+    .hero{
+        padding:50px 0;
+    }
+
+    .hero-container{
+        flex-direction:column;
+        gap:30px;
+    }
+
+    .hero-content h1{
+        font-size:2rem;
+        line-height:1.2em;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+        width:100%;
+    }
+    .nav-links{
+        display:none;
+    }
+    section{
+        padding:60px 0;
+    }
+    .btn-primary,
+    .btn-secondary{
+        text-align:center;
+        width:100%;
+    }
+    .nav-container{
+    max-width:1200px;
+    margin:auto;
+    }
+     .benefits-grid{
+
+        grid-template-columns:1fr;
+
+    }
+    .crops-grid{
+
+        grid-template-columns:1fr;
+
+    }
+    .stats-grid{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+    .ai-container{
+
+        flex-direction:column;
+        gap:40px;
+
+    }
+    .community-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}

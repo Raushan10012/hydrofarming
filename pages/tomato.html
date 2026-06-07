@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomato Growing Guide | HydroLearn</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/navbar.css">
+    
+    <style>
+        .crop-detail-hero {
+            background: linear-gradient(135deg, #d32f2f, #b71c1c);
+            color: white;
+            padding: 80px 20px 60px;
+            text-align: center;
+            border-bottom: 5px solid #ff5252;
+        }
+        .crop-detail-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+        .crop-detail-hero p {
+            font-size: 1.2rem;
+            color: #ffebee;
+            max-width: 600px;
+            margin: auto;
+        }
+        .crop-detail-container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+        @media (max-width: 768px) {
+            .crop-detail-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        .detail-card {
+            background: white;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        .detail-card h2 {
+            color: #d32f2f;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .spec-item {
+            background: var(--bg);
+            padding: 15px;
+            border-radius: 12px;
+            border-left: 4px solid #d32f2f;
+        }
+        .spec-item span {
+            display: block;
+            font-size: 13px;
+            color: var(--gray);
+            font-weight: 500;
+        }
+        .spec-item strong {
+            font-size: 18px;
+            color: var(--dark);
+        }
+        .checklist-sync-box {
+            text-align: center;
+            background: #ffebee;
+            border: 2px dashed #d32f2f;
+            padding: 25px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+        }
+        .sync-btn {
+            background: #d32f2f;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 15px;
+            width: 100%;
+            transition: 0.3s;
+            margin-top: 15px;
+        }
+        .sync-btn:hover {
+            background: #b71c1c;
+        }
+        .sync-btn.active {
+            background: #ffcdd2;
+            color: #b71c1c;
+            border: 1px solid #b71c1c;
+        }
+        .guide-step {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+        }
+        .step-num {
+            background: #d32f2f;
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        .step-content h3 {
+            margin-top: 2px;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+        .step-content p {
+            color: var(--gray);
+            font-size: 14.5px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container nav-container">
+        <div class="logo">👨‍🌾 HydroLearn</div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="learn.html">Learn</a></li>
+            <li><a href="crops.html">Crop Guide</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="marketplace.html">Marketplace</a></li>
+            <li><a href="hydroai.html">HydroAI</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button class="lang-btn">🌐 EN</button>
+            <button class="access-btn">♿ Accessibility</button>
+            <div id="userArea">
+                <a href="login.html" class="login-btn">Login</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<section class="crop-detail-hero">
+    <h1>🍅 Vine-Ripened Tomatoes</h1>
+    <p>A highly rewarding, heavy-feeding crop. Perfect for advanced hobbyists using DWC or Dutch Buckets.</p>
+</section>
+
+<main class="crop-detail-container">
+    <div class="main-content">
+        <div class="detail-card">
+            <h2>📈 Overview & Growing Requirements</h2>
+            <div class="specs-grid">
+                <div class="spec-item">
+                    <span>Optimal pH Range</span>
+                    <strong>6.0 - 6.5</strong>
+                </div>
+                <div class="spec-item">
+                    <span>EC Range (Nutrient level)</span>
+                    <strong>2.0 - 5.0 mS/cm</strong>
+                </div>
+                <div class="spec-item">
+                    <span>Growth Cycle Time</span>
+                    <strong>60 - 90 Days</strong>
+                </div>
+                <div class="spec-item">
+                    <span>Preferred System</span>
+                    <strong>DWC or Dutch Buckets</strong>
+                </div>
+                <div class="spec-item">
+                    <span>Water Temperature</span>
+                    <strong>20°C - 25°C</strong>
+                </div>
+                <div class="spec-item">
+                    <span>Daily Light Requirement</span>
+                    <strong>16 - 18 Hours</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-card">
+            <h2>📋 Step-by-Step Cultivation Guide</h2>
+            
+            <div class="guide-step">
+                <div class="step-num">1</div>
+                <div class="step-content">
+                    <h3>Seed Starter Phase (Days 1–14)</h3>
+                    <p>Start seeds in rockwool plugs under high warmth. Keep moist but not saturated. Provide high intensity lighting as soon as seed leaves unfurl.</p>
+                </div>
+            </div>
+
+            <div class="guide-step">
+                <div class="step-num">2</div>
+                <div class="step-content">
+                    <h3>Transplanting into Large Net Cups (Days 15–20)</h3>
+                    <p>Transfer seedlings into large DWC net cups filled with expanded clay pebbles (hydroton) or setup inside a Dutch Bucket with coco-perlite mix.</p>
+                </div>
+            </div>
+
+            <div class="guide-step">
+                <div class="step-num">3</div>
+                <div class="step-content">
+                    <h3>Vigorous Growth & Trellising (Days 20–50)</h3>
+                    <p>Tomatoes grow tall and heavy. Setup trellises or supports early. Keep EC high (increasing up to 3.0+ mS/cm) and monitor pH to prevent Blossom End Rot.</p>
+                </div>
+            </div>
+
+            <div class="guide-step">
+                <div class="step-num">4</div>
+                <div class="step-content">
+                    <h3>Pollination & Fruiting (Days 50–90)</h3>
+                    <p>Inside homes, shake flower clusters gently to hand-pollinate. Once fruits turn deep red, pick them for immediate consumption and rich taste.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar-content">
+        <div class="checklist-sync-box">
+            <h3>🌱 Track Your Progress</h3>
+            <p style="font-size: 14px; color: var(--gray); margin-top: 8px;">Are you currently growing Tomatoes? Add it to your profile checklist to monitor its cycle!</p>
+            <button id="syncChecklistBtn" class="sync-btn">Add to My Growing List</button>
+        </div>
+
+        <div class="detail-card" style="padding: 20px;">
+            <h3 style="color: #d32f2f; margin-bottom: 15px; font-size: 16px;">🛒 Essential Supplies</h3>
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 8px;">
+                    <span style="font-size: 14px;">Tomato Seeds</span>
+                    <a href="marketplace.html" style="color: #d32f2f; font-weight: 600; font-size: 14px;">Shop Seeds &rarr;</a>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 8px;">
+                    <span style="font-size: 14px;">Dutch Bucket System</span>
+                    <a href="marketplace.html" style="color: #d32f2f; font-weight: 600; font-size: 14px;">Buy Kit &rarr;</a>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <span style="font-size: 14px;">Tomato Nutrients (B-Part)</span>
+                    <a href="marketplace.html" style="color: #d32f2f; font-weight: 600; font-size: 14px;">Shop Nutrients &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script type="module" src="../assets/js/firebase.js"></script>
+<script type="module" src="../assets/js/user.js"></script>
+<script type="module" src="../assets/js/language.js"></script>
+<script type="module" src="../assets/js/accessibility.js"></script>
+<script type="module" src="../assets/js/navbar.js"></script>
+
+<script type="module">
+    import { auth } from "../assets/js/firebase.js";
+    import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.14.0/firebase-auth.js";
+
+    const syncBtn = document.getElementById("syncChecklistBtn");
+
+    onAuthStateChanged(auth, (user) => {
+        if (!user) {
+            syncBtn.onclick = () => {
+                alert("Please login first to sync crops with your profile checklist!");
+                window.location.href = "login.html";
+            };
+            return;
+        }
+
+        const storageKey = `cropsChecked_${user.email}`;
+        let savedCrops = JSON.parse(localStorage.getItem(storageKey)) || {};
+
+        function updateBtnUI() {
+            if (savedCrops["cropTomato"]) {
+                syncBtn.innerText = "✓ Currently Growing";
+                syncBtn.classList.add("active");
+            } else {
+                syncBtn.innerText = "Add to My Growing List";
+                syncBtn.classList.remove("active");
+            }
+        }
+
+        updateBtnUI();
+
+        syncBtn.onclick = () => {
+            savedCrops = JSON.parse(localStorage.getItem(storageKey)) || {};
+            savedCrops["cropTomato"] = !savedCrops["cropTomato"];
+            localStorage.setItem(storageKey, JSON.stringify(savedCrops));
+            updateBtnUI();
+            
+            if (savedCrops["cropTomato"]) {
+                alert("Tomato added to your dashboard checklist!");
+            } else {
+                alert("Tomato removed from your dashboard checklist.");
+            }
+        };
+    });
+</script>
+
+</body>
+</html>

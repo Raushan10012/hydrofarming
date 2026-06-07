@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace | HydroLearn</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../assets/css/variables.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/navbar.css">
+    <link rel="stylesheet" href="../assets/css/marketplace.css">
+    
+    <style>
+        .category-section {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            padding: 0 20px;
+        }
+        .category-btn {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 10px 22px;
+            border-radius: 25px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: var(--shadow);
+        }
+        .category-btn:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        .category-btn.active {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--border);
+        }
+        .product-card img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+        }
+        .product-info {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .product-info h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+        .product-info .price {
+            font-size: 19px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+        .product-info .rating {
+            color: #f59e0b;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        .product-info .source {
+            font-size: 12px;
+            background: #f1f5f9;
+            padding: 4px 10px;
+            border-radius: 20px;
+            width: fit-content;
+            margin-bottom: 20px;
+            color: var(--gray);
+            font-weight: 600;
+        }
+        .buy-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+            font-weight: 600;
+            font-size: 14.5px;
+            transition: 0.3s;
+            margin-top: auto;
+        }
+        .buy-btn:hover {
+            background: #1b5e20;
+        }
+        
+        /* Modal for Checkout Simulation */
+        .market-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 10000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+        .market-modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 450px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container nav-container">
+        <div class="logo">👨‍🌾 HydroLearn</div>
+        <ul class="nav-links">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="learn.html">Learn</a></li>
+            <li><a href="crops.html">Crop Guide</a></li>
+            <li><a href="community.html">Community</a></li>
+            <li><a href="marketplace.html" class="active">Marketplace</a></li>
+            <li><a href="hydroai.html">HydroAI</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button class="lang-btn">🌐 EN</button>
+            <button class="access-btn">♿ Accessibility</button>
+            <div id="userArea">
+                <a href="login.html" class="login-btn">Login</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<section class="marketplace-hero">
+    <h1>HydroLearn Marketplace</h1>
+    <p>Discover seeds, nutrients, hydroponic systems, and high-performance farming equipment.</p>
+</section>
+
+<section class="search-section container">
+    <input type="text" id="searchInput" placeholder="Search products...">
+</section>
+
+<section class="category-section">
+    <button class="category-btn active" data-category="all">All</button>
+    <button class="category-btn" data-category="seeds">Seeds</button>
+    <button class="category-btn" data-category="nutrients">Nutrients</button>
+    <button class="category-btn" data-category="equipment">Equipment</button>
+    <button class="category-btn" data-category="essentials">Farming Essentials</button>
+</section>
+
+<section class="product-grid container">
+    <div class="product-card" data-category="seeds">
+        <img src="../assets/images/products/lettuce-seeds.jpg" alt="Lettuce Seeds">
+        <div class="product-info">
+            <h3>Premium Butterhead Lettuce Seeds</h3>
+            <div class="price">₹120</div>
+            <div class="rating">⭐ 4.7 (104 reviews)</div>
+            <span class="source">Source: Amazon</span>
+            <button class="buy-btn" data-id="lettuce-seeds" data-price="120" data-name="Premium Butterhead Lettuce Seeds">Purchase Product</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-category="seeds">
+        <img src="../assets/images/products/tomato-seeds.jpg" alt="Tomato Seeds">
+        <div class="product-info">
+            <h3>Cherry Tomato Seeds (F1 Hybrid)</h3>
+            <div class="price">₹150</div>
+            <div class="rating">⭐ 4.6 (82 reviews)</div>
+            <span class="source">Source: Flipkart</span>
+            <button class="buy-btn" data-id="tomato-seeds" data-price="150" data-name="Cherry Tomato Seeds (F1 Hybrid)">Purchase Product</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-category="nutrients">
+        <img src="../assets/images/products/nutrient-a.jpg" alt="Hydro Nutrient A">
+        <div class="product-info">
+            <h3>NPK Hydroponic Nutrient A+B Set (1L)</h3>
+            <div class="price">₹450</div>
+            <div class="rating">⭐ 4.8 (212 reviews)</div>
+            <span class="source">Source: Amazon</span>
+            <button class="buy-btn" data-id="nutrient-ab" data-price="450" data-name="NPK Hydroponic Nutrient A+B Set (1L)">Purchase Product</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-category="equipment">
+        <img src="../assets/images/products/nft-system.jpg" alt="DWC Kit">
+        <div class="product-info">
+            <h3>Citygreens DWC Hydroponic Kit (5 Planter)</h3>
+            <div class="price">₹1530</div>
+            <div class="rating">⭐ 4.9 (45 reviews)</div>
+            <span class="source">Source: IndiaMART</span>
+            <button class="buy-btn" data-id="dwc-kit" data-price="1530" data-name="Citygreens DWC Hydroponic Kit (5 Planter)">Purchase Product</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-category="essentials">
+        <img src="../assets/images/products/ph-meter.jpg" alt="pH Meter">
+        <div class="product-info">
+            <h3>Digital Water pH & TDS Tester Meter</h3>
+            <div class="price">₹650</div>
+            <div class="rating">⭐ 4.5 (340 reviews)</div>
+            <span class="source">Source: Amazon</span>
+            <button class="buy-btn" data-id="ph-meter" data-price="650" data-name="Digital Water pH & TDS Tester Meter">Purchase Product</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-category="equipment">
+        <img src="../assets/images/products/water-pump.jpg" alt="Water Pump">
+        <div class="product-info">
+            <h3>18W Submersible Water Pump for NFT</h3>
+            <div class="price">₹380</div>
+            <div class="rating">⭐ 4.7 (96 reviews)</div>
+            <span class="source">Source: Flipkart</span>
+            <button class="buy-btn" data-id="water-pump" data-price="380" data-name="18W Submersible Water Pump for NFT">Purchase Product</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-category="essentials">
+        <img src="../assets/images/products/lk.jpg" alt="Clay Pebbles">
+        <div class="product-info">
+            <h3>Expanded Clay Pebbles (Hydroton - 5kg)</h3>
+            <div class="price">₹599</div>
+            <div class="rating">⭐ 4.7 (130 reviews)</div>
+            <span class="source">Source: Amazon</span>
+            <button class="buy-btn" data-id="clay-pebbles" data-price="599" data-name="Expanded Clay Pebbles (Hydroton - 5kg)">Purchase Product</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-category="seeds">
+        <img src="../assets/images/crops/basil.jpg" alt="Basil Seeds">
+        <div class="product-info">
+            <h3>Aromatic Basil Seeds (Premium Heirloom)</h3>
+            <div class="price">₹99</div>
+            <div class="rating">⭐ 4.8 (56 reviews)</div>
+            <span class="source">Source: Flipkart</span>
+            <button class="buy-btn" data-id="basil-seeds" data-price="99" data-name="Aromatic Basil Seeds (Premium Heirloom)">Purchase Product</button>
+        </div>
+    </div>
+
+    <div class="product-card" data-category="equipment">
+        <img src="../assets/images/products/water-pump.jpg" alt="Dosing Pump">
+        <div class="product-info">
+            <h3>Automatic Liquid Dosing Pump</h3>
+            <div class="price">₹2499</div>
+            <div class="rating">⭐ 4.6 (42 reviews)</div>
+            <span class="source">Source: IndiaMART</span>
+            <button class="buy-btn" data-id="dosing-pump" data-price="2499" data-name="Automatic Liquid Dosing Pump">Purchase Product</button>
+        </div>
+    </div>
+</section>
+
+<!-- Checkout Modal -->
+<div id="checkoutModal" class="market-modal">
+    <div class="market-modal-content">
+        <span id="closeModalBtn" style="position: absolute; top: 12px; right: 18px; font-size: 24px; font-weight: bold; cursor: pointer; color: var(--gray);">&times;</span>
+        <h3 style="color: var(--primary); margin-top: 10px; margin-bottom: 15px; font-size: 20px;">🛒 Confirm Order</h3>
+        <p id="modalProductName" style="font-weight: 600; font-size: 16px; margin-bottom: 8px;"></p>
+        <p id="modalProductPrice" style="font-size: 18px; font-weight: 700; color: var(--primary); margin-bottom: 20px;"></p>
+        
+        <div style="text-align: center; margin-bottom: 20px; background: #e8f5e9; padding: 15px; border-radius: 12px; border: 1px solid #c8e6c9;">
+            <p style="font-size: 14px; color: var(--primary); margin: 0; line-height: 1.5;">You will be redirected to the e-commerce store to complete your purchase. This action will also record the order in your dashboard history.</p>
+        </div>
+
+        <button id="confirmOrderBtn" class="buy-btn" style="width: 100%; border: none;">Go to Partner Store &rarr;</button>
+    </div>
+</div>
+
+<script type="module" src="../assets/js/firebase.js"></script>
+<script type="module" src="../assets/js/user.js"></script>
+<script type="module" src="../assets/js/language.js"></script>
+<script type="module" src="../assets/js/accessibility.js"></script>
+<script type="module" src="../assets/js/navbar.js"></script>
+<script type="module" src="../assets/js/marketplace.js"></script>
+
+</body>
+</html>
